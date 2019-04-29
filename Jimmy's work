@@ -3,14 +3,18 @@ import numpy as np
 import time 
 import sys
 
+#defining areas
 ptable = [[ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2],
           [ 3, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 6, 7, 8, 9,10],
           [11,12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,13,14,15,16,17,18],
           [19,20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+
 row1 = [1,2]
 row2 = np.arange(8) + 3
 row3 = np.arange(8) + 11
 row4 = [19,20]
+
+exp = ['\u00b9,\u00b2,\u00b3,\u2074,\u2075,\u2076,']
 
 
 #Interactive system 
@@ -85,8 +89,26 @@ def ask():
     else:
         print('Invalid input.')
         sys.exit
+        
     print ('You have chosen the element:', elem)
+    time.sleep (1)
     
-
-
+    if num == 1:
+        print ('Because hydrogen only has one electron orbitting around the nucleus, it has a half-empty s orbital.')
+        time.sleep (1)
+        print ('The electron configuration of hydrogen is 1s\u00b9')
+    elif num == 2:
+        print ('Helium has two electrons, exactly filling the first shell. So it is a happy noble gas!')
+        time.sleep (1)
+        print ('The electron configuration of helium is: 1s\u00b2')
+    elif num == 3 or 4:
+        print (elem, 'has,',num-2,'electron in its outmost 2s orbital, which has the orbital 1s before it.')
+        time.sleep (1)
+        if 
+        print ('The electron configuration of', elem, 'is: 1s\u00b2','2s\u00b2',)
+    else:
+        pass
+        
+    
+ask()
         

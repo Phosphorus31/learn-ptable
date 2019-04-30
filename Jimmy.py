@@ -27,7 +27,7 @@ def ecf(s1,s2,p2,s3,p3,s4):
     elif p3 == -1:
         print ('1s',exp[1],'2s',exp[1],'2p',exp[5],'3s',exp[num-11])
     elif s4 == -1:
-        print ('1s',exp[1],'2s',exp[1],'2p',exp[5],'3s',exp[1],'3p',exp[num-13])
+        print ('1s',exp[1],'2s',exp[1],'2p',exp[5],'3sj',exp[1],'3p',exp[num-13])
     else:
         print ('1s',exp[1],'2s',exp[1],'2p',exp[5],'3s',exp[1],'3p',exp[5],'4s',exp[num-19])
         

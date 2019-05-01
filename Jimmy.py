@@ -16,12 +16,14 @@ with open('Elements.csv') as csvfile:
     symbz = []
     names = []
     shellz = []
+    oes = []
     for row in readCSV:
         symbz.append(row[1])
         names.append(row[2])
         shellz.append(row[3])
+        oes.append(row[4])
 
-exp = ['\u00b9','\u00b2','\u00b3','\u2074','\u2075','\u2076',]
+exp = ['\u00b9', '\u00b2', '\u00b3', '\u2074', '\u2075', '\u2076']
 
 def welcome():
     print ('Welcome to the periodic table learning tool!')
@@ -31,7 +33,7 @@ def welcome():
     
 def ecf(s1,s2,p2,s3,p3,s4):
     if s2 == -1:
-        print ('1s',exp[1])
+        print ('1s' + exp[1])
     elif p2 == -1:
         print ('1s',exp[1],'2s',exp[num-3])
     elif s3 == -1:
@@ -39,7 +41,7 @@ def ecf(s1,s2,p2,s3,p3,s4):
     elif p3 == -1:
         print ('1s',exp[1],'2s',exp[1],'2p',exp[5],'3s',exp[num-11])
     elif s4 == -1:
-        print ('1s',exp[1],'2s',exp[1],'2p',exp[5],'3sj',exp[1],'3p',exp[num-13])
+        print ('1s',exp[1],'2s',exp[1],'2p',exp[5],'3s',exp[1],'3p',exp[num-13])
     else:
         print ('1s',exp[1],'2s',exp[1],'2p',exp[5],'3s',exp[1],'3p',exp[5],'4s',exp[num-19])
         
@@ -47,17 +49,18 @@ def outmost(number):
     print (elem, 'has',number,'electrons in its outmost',shell,'orbital.')
     time.sleep (1)
     
+shells = ['1s', '2s', '2p', '3s', '3p', '4s', '3d', '4p', '5s', '4d', '5p', '6s', '4f', '5d', '6p', '7s', '5f', '6d', '7p']    
+
 def inner():
-    if shell == '2s':
-        innershell = '1s'
-    elif shell == '2p':
-        innershell = '1s and 2s'
-    elif shell == '3s':
-        innershell = '1s, 2s and 2p'
-    elif shell == '3p':
-        innershell = '1s, 2s, 2p, and 3s'
-    else:
-        innershell = '1s, 2s, 2p, 3s, and 3p'
+    shellnum = shells.index(shell)
+    innershell = ''
+    for i in range(shellnum):
+        if (i == 0):
+            innershell = innershell + str(shells[i])
+        elif (i == shellnum - 1):
+            innershell = innershell + ', and ' + str(shells[i])
+        else:
+            innershell = innershell + ', ' + str(shells[i])
     print ('It also has the full',innershell,'orbitals.')
     time.sleep (1)
     
@@ -96,11 +99,11 @@ def ask():
     if num == 1:
         print ('Because hydrogen only has one electron orbitting around the nucleus, it has a half-empty 1s orbital.')
         config()
-        print(shell,exp[0])
+        print(shell + exp[0])
     elif num == 2:
         print ('Helium has two electrons, exactly filling the 1s orbital. So, it is a happy noble gas!')
         config ()
-        print(shell,exp[1])
+        print(shell + exp[1])
     elif num == 3 or num == 4:
         outmost(num-2)
         inner()

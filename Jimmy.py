@@ -206,13 +206,7 @@ def ask():
 def run():
     welcome()
     ask()
-    time.sleep (2)
-    fb = input('Is it correct? Y/N   ')
-    time.sleep (1)
-    if fb == 'Y' or fb == 'yes' or fb == 'Yes':
-        print ('Thank you very much!')
-    else:
-        print ('Please let us know how we can improve. Thanks!')
+
         
         
 #Here we go!   

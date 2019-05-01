@@ -15,9 +15,11 @@ with open('Elements.csv') as csvfile:
     readCSV = csv.reader(csvfile, delimiter = ',')
     symbz = []
     names = []
+    shellz = []
     for row in readCSV:
         symbz.append(row[1])
         names.append(row[2])
+        shellz.append(row[3])
 
 exp = ['\u00b9','\u00b2','\u00b3','\u2074','\u2075','\u2076',]
 
@@ -76,24 +78,12 @@ def ask():
     #Database
     global elem
     global num
+    global shell
 
     if (choose in symbz):
         num = symbz.index(choose)
         elem = names[num]
-        
-    global shell
-    if num <= 2:
-        shell = '1s'
-    elif num <= 4:
-        shell = '2s'
-    elif num <= 10:
-        shell = '2p'
-    elif num <= 12:
-        shell = '3s'
-    elif num <= 18:
-        shell = '3p'
-    else:
-        shell = '4s'
+        shell = shellz[num]
     
     #General response
     print ('You have chosen the element:', elem)

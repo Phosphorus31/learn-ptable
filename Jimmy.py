@@ -181,7 +181,7 @@ def ask():
         config()
         ecf(2,2,6,2,99,-1)
     else:
-        outmost (num-20)
+        outmost (num-18)
         inner()
         config()
         ecf(2,2,6,2,6,99)

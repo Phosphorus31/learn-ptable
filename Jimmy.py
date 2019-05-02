@@ -49,7 +49,7 @@ def outmost(number):
     print (elem, 'has',number,'electrons in its outmost',shell,'orbital.')
     time.sleep (1)
     
-shells = ['1s', '2s', '2p', '3s', '3p', '4s', '3d', '4p', '5s', '4d', '5p', '6s', '4f', '5d', '6p', '7s', '5f', '6d', '7p']    
+shells = ['1s', '2s', '2p', '3s', '3p', '4s', '3d', '4p', '5s', '4d', '5p', '6s', '4f', '5d', '6p', '7s', '5f', '6d', '7p']
 
 def inner():
     shellnum = shells.index(shell)

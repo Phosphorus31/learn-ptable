@@ -105,40 +105,17 @@ def ask():
         print ('Helium has two electrons, exactly filling the 1s orbital. So, it is a happy noble gas!')
         config ()
         ecf()
-    elif num == 3 or num == 4:
-        outmost(oes[num])
-        inner()
-        config()
-        ecf()
-    elif num <= 10:
-        outmost(oes[num])
-        inner()
-        config()
-        ecf()
-    elif num == 11 or num == 12:
-        outmost(oes[num])
-        inner()
-        config()
-        ecf()
-    elif num <= 18:
-        outmost(oes[num])
-        inner()
-        config()
-        ecf()
     else:
         outmost(oes[num])
         inner()
         config()
         ecf()
-    
-        
+       
 # operation area
 def run():
     welcome()
     ask()
 
-        
-        
 #Here we go!   
         
 run()

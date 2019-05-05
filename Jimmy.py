@@ -23,7 +23,7 @@ with open('Elements.csv') as csvfile:
         shellz.append(row[3])
         oes.append(row[4])
 
-exp = ['\u00b9', '\u00b2', '\u00b3', '\u2074', '\u2075', '\u2076']
+exp = ['\u2070', '\u00b9','\u00b2','\u00b3','\u2074','\u2075','\u2076','\u2077','\u2078','\u2079','\u00b9\u2070','\u00b9\u00b9','\u00b9\u00b2','\u00b9\u00b3','\u00b9\u2074']
 
 def welcome():
     print ('Welcome to the periodic table learning tool!')
@@ -32,19 +32,19 @@ def welcome():
     time.sleep (1)
     
 def ecf(s1,s2,p2,s3,p3,s4):
-    if s2 == -1:
-        print ('1s' + exp[1])
-    elif p2 == -1:
-        print ('1s',exp[1],'2s',exp[num-3])
-    elif s3 == -1:
-        print ('1s',exp[1],'2s',exp[1],'2p',exp[num-5])
-    elif p3 == -1:
-        print ('1s',exp[1],'2s',exp[1],'2p',exp[5],'3s',exp[num-11])
-    elif s4 == -1:
-        print ('1s',exp[1],'2s',exp[1],'2p',exp[5],'3s',exp[1],'3p',exp[num-13])
-    else:
-        print ('1s',exp[1],'2s',exp[1],'2p',exp[5],'3s',exp[1],'3p',exp[5],'4s',exp[num-19])
-        
+
+    enum = int(num)
+    configurat = ''
+    for i in range(19):
+        if (enum > maxe[i]):
+            configurat = configurat + shells[i] + exp[maxe[i]]
+            enum = enum - maxe[i]
+        else:
+            configurat = configurat + shells[i] + exp[enum]
+            break
+    print(configurat)
+
+
 def outmost(number):
     print (elem, 'has',number,'electrons in its outmost',shell,'orbital.')
     time.sleep (1)

@@ -31,7 +31,7 @@ def welcome():
     print ('You will learn about the electron configuration!')
     time.sleep (1)
     
-def ecf(s1,s2,p2,s3,p3,s4):
+def ecf():
 
     enum = int(num)
     configurat = ''
@@ -100,36 +100,36 @@ def ask():
     if num == 1:
         print ('Because hydrogen only has one electron orbitting around the nucleus, it has a half-empty 1s orbital.')
         config()
-        print(shell + exp[0])
+        ecf()
     elif num == 2:
         print ('Helium has two electrons, exactly filling the 1s orbital. So, it is a happy noble gas!')
         config ()
-        print(shell + exp[1])
+        ecf()
     elif num == 3 or num == 4:
-        outmost(num-2)
+        outmost(oes[num])
         inner()
         config()
-        ecf(2,99,-1,-1,-1,-1)
+        ecf()
     elif num <= 10:
-        outmost(num-4)
+        outmost(oes[num])
         inner()
         config()
-        ecf(2,2,num-4,-1,-1,-1)
+        ecf()
     elif num == 11 or num == 12:
-        outmost(num-10)
+        outmost(oes[num])
         inner()
         config()
-        ecf(2,2,6,99,-1,-1)
+        ecf()
     elif num <= 18:
-        outmost(num-12)
+        outmost(oes[num])
         inner()
         config()
-        ecf(2,2,6,2,99,-1)
+        ecf()
     else:
-        outmost (num-18)
+        outmost(oes[num])
         inner()
         config()
-        ecf(2,2,6,2,6,99)
+        ecf()
     
         
 # operation area

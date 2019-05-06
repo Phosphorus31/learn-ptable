@@ -137,4 +137,8 @@ def ask_again():
     else:
         print('I\'m not sure I understand what you mean, please try again.')
         time.sleep(1)
+<<<<<<< HEAD
         ask_again()
+=======
+        ask_again()
+>>>>>>> dfaf92dbae856d51c6c3d8b7cb864ca7d66b3dc9

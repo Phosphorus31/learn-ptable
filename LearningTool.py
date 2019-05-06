@@ -8,6 +8,7 @@ exp = ['\u2070', '\u00b9','\u00b2','\u00b3','\u2074','\u2075','\u2076','\u2077',
 def run():
     welcome()
     ask_cycle()
+    ask_again()
 
 def welcome():
     print('Welcome to the periodic table learning tool!')
@@ -46,7 +47,8 @@ def ask():
         elem = choose
         o_shell = o_shells[num]
 
-    print('You have chosen the element: ' + elem)
+    print('You have chosen element ' + str(num) + ': ' + elem)
+    time.sleep(1)
 
 def o_orbital(a_num, outmost_shell):
     print('The area on which the element falls on the periodic table is dictated by the highest-energy orbital of that element.')
@@ -76,22 +78,45 @@ def o_elec(a_num, outer_num, outmost_shell):
     time.sleep(1)
 
 def i_shells(a_num, outmost_shell):
-    innershells = ''
-    for i in range(e_orbitals.index(o_shell)):
-        if (i == 0):
-            innershells = innershells + str(e_orbitals[i])
-        elif (i == e_orbitals.index(o_shell) - 1):
-            innershells = innershells + ', and ' + str(e_orbitals[i])
-        else:
-            innershells = innershells + ', ' + str(e_orbitals[i])
-    print('It also has full ' + innershells + ' orbitals, filled with electrons.')
-    time.sleep(1)
+    if (a_num > 2):
+        innershells = ''
+        for i in range(e_orbitals.index(o_shell)):
+            if (i == 0):
+                innershells = innershells + str(e_orbitals[i])
+            elif (i == e_orbitals.index(o_shell) - 1):
+                innershells = innershells + ', and ' + str(e_orbitals[i])
+            else:
+                innershells = innershells + ', ' + str(e_orbitals[i])
+        print('It also has full ' + innershells + ' orbitals, filled with electrons.')
+        time.sleep(1)
 
 def print_config(a_num, elec_c):
-    print('The electron configuration of neutral ' + names[a_num] + ' is:')
+    print('The electron configuration of neutral ' + str(names[a_num]).lower() + ' is:')
     time.sleep(1)
     print(elec_c)
     time.sleep(1)
+    shorthand(a_num, elec_c)
+
+def shorthand(atomic_number, electron_configuration):
+    if (atomic_number <= 2):
+        print('The electron configuration of ' + str(names[atomic_number]).lower() + ' has no shorthand notation.')
+        time.sleep(1)
+    else:
+        print('The shorthand notation for ' + str(names[atomic_number]).lower() + '\'s electron configuration is:')
+        time.sleep(1)
+        if ('7s' in electron_configuration):
+            print('[Rn]' + electron_configuration[49:])
+        elif ('6s' in electron_configuration):
+            print('[Xe]' + electron_configuration[35:])
+        elif ('5s' in electron_configuration):
+            print('[Kr]' + electron_configuration[25:])
+        elif ('4s' in electron_configuration):
+            print('[Ar]' + electron_configuration[15:])
+        elif ('3s' in electron_configuration):
+            print('[Ar]' + electron_configuration[9:])
+        elif ('2s' in electron_configuration):
+            print('[Ar]' + electron_configuration[6:])
+        time.sleep(1)
 
 def ask_cycle():
     ask()
@@ -101,7 +126,15 @@ def ask_cycle():
     i_shells(num, o_shell)
     print_config(num, config)
 
-# def ask_again():
-#     state = input('Would you like to learn about another type of element? (Yes/No)')
-#     if (state = 'Yes'):
-#         ask_cycle()
+def ask_again():
+    state = input('Would you like to learn about another type of element? (Yes/No) ')
+    if ((state == 'Yes') or (state == 'yes')):
+        ask_cycle()
+    elif ((state == 'No') or (state == 'no')):
+        print('Thank you for using the periodic table learning tool!')
+        time.sleep(1)
+        print('We hope to see you again soon :)')
+    else:
+        print('I\'m not sure I understand what you mean, please try again.')
+        time.sleep(1)
+        ask_again()

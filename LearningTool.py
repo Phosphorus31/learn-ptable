@@ -127,7 +127,7 @@ def ask_cycle():
     print_config(num, config)
 
 def ask_again():
-    state = input('Would you like to learn about another type of element? (Yes/No) ')
+    state = input('Would you like to learn about another type of element? (Yes/No): ')
     if ((state == 'Yes') or (state == 'yes')):
         ask_cycle()
     elif ((state == 'No') or (state == 'no')):

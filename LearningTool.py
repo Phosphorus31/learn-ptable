@@ -118,9 +118,9 @@ def shorthand(atomic_number, electron_configuration):
         elif ('4s' in electron_configuration):
             print('[Ar]' + electron_configuration[15:])
         elif ('3s' in electron_configuration):
-            print('[Ar]' + electron_configuration[9:])
+            print('[Ne]' + electron_configuration[9:])
         elif ('2s' in electron_configuration):
-            print('[Ar]' + electron_configuration[6:])
+            print('[He]' + electron_configuration[6:])
         time.sleep(1)
 
 def ask_cycle():

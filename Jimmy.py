@@ -77,7 +77,7 @@ def config():
     
 #Interactive system 
 def ask():
-    choose = input('Now type in the chemical symbol of the element you would like to explore.  ')
+    choose = input('Now type in the chemical symbol of the element you would like to explore.')
    
     #Database
     global elem

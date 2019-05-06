@@ -17,25 +17,27 @@ def welcome():
 
 with open('Elements.csv') as csvfile:
     readCSV = csv.reader(csvfile, delimiter = ',')
+    numbers = []
     symbols = []
     names = []
     o_shells = []
     for row in readCSV:
+        numbers.append(row[0])
         symbols.append(row[1])
         names.append(row[2])
         o_shells.append(row[3])
 
 def ask():
-    choose = input('Please enter the chemical symbol or the name of the element that you would like to explore: ')
+    choose = input('Please enter the chemical symbol, atmoic number, or the name of the element that you would like to explore: ')
 
     global num
     global elem
     global o_shell
 
-    while (not(choose in symbols) and not(choose in names)):
-        print('The name you entered does not exist in our database; please confirm your spelling and try again.')
+    while (not(choose in symbols) and not(choose in names) and not(choose in numbers)):
+        print('The name or number you entered does not exist in our database; please confirm your spelling and try again.')
         time.sleep(1)
-        choose = input('In order for this database to work, please capitalize the first letter and leave the rest un-capitalized: ')
+        choose = input('If you are trying to enter a chemical symbol or name, please capitalize the first letter and leave the rest un-capitalized: ')
 
     if (choose in symbols):
         num = symbols.index(choose)
@@ -44,6 +46,10 @@ def ask():
     elif (choose in names):
         num = names.index(choose)
         elem = choose
+        o_shell = o_shells[num]
+    elif (choose in numbers):
+        num = int(choose)
+        elem = names[num]
         o_shell = o_shells[num]
 
     print('You have chosen element ' + str(num) + ': ' + elem)
@@ -135,6 +141,6 @@ def ask_again():
         time.sleep(1)
         print('We hope to see you again soon :)')
     else:
-        print('I\'m not sure I understand what you mean, please try again.')
+        print('I\'m not sure I understand what you mean, please enter "yes" or "no"')
         time.sleep(1)
         ask_again()

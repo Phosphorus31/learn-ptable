@@ -8,7 +8,6 @@ exp = ['\u2070', '\u00b9','\u00b2','\u00b3','\u2074','\u2075','\u2076','\u2077',
 def run():
     welcome()
     ask_cycle()
-    ask_again()
 
 def welcome():
     print('Welcome to the periodic table learning tool!')
@@ -125,6 +124,7 @@ def ask_cycle():
     o_elec(num, outer_e, o_shell)
     i_shells(num, o_shell)
     print_config(num, config)
+    ask_again()
 
 def ask_again():
     state = input('Would you like to learn about another type of element? (Yes/No): ')

@@ -75,3 +75,28 @@ def from_config(correct):
                 print('I\'m sorry, that was incorrect. Please try again.')
         else:
             print('I\'m sorry, I don\'t understand what you mean, please try again.')
+
+def find_config(correct):
+    print('Which of the following is the ground state electron configuration of ' + str(names[correct]).lower() + '?')
+    choices = []
+    choices.append(correct)
+    while (len(choices) < 4):
+        x = random.randint(0, 117)
+        if (not(x in choices)):
+            choices.append(x)
+    choices.sort()
+    print(choices)
+    for i in range(4):
+        print(let[i] + '. ' + configuration(choices[i]))
+    ans = False
+    while (not ans):
+        choice = input('Answer: ')
+        if (choice in let):
+            if (choices[let.index(choice) % 4] == correct):
+                ans = True
+                print('Correct! ' + str(names[correct]) + '\'s ground state electron configuration is ' + configuration(correct)  + '!')
+            else:
+                print('I\'m sorry, that was incorrect. Please try again.')
+        else:
+            print('I\'m sorry, I don\'t understand what you mean, please try again.')    
+    

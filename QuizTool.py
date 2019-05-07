@@ -38,6 +38,40 @@ def highest_energy_orbital(correct):
                 ans = True
                 print('Correct! The highest energy orbital that neutral ' + str(names[correct]).lower() + ' contains is ' + o_shells[correct]  + '!')
             else:
-                print('I\'m sorry, that was incorrect. Please try again')
+                print('I\'m sorry, that was incorrect. Please try again.')
         else:
-            print('I\'m sorry, I don\' understand what you mean, please try again.')
+            print('I\'m sorry, I don\'t understand what you mean, please try again.')
+
+def configuration(a_num):
+    electron_num = int(a_num)
+    config = ''
+    for i in range(19):
+        if ( electron_num > shell_e[i]):
+            config = config + e_orbitals[i] + exp[shell_e[i]]
+            electron_num = electron_num - shell_e[i]
+        else:
+            config = config + e_orbitals[i] + exp[electron_num]
+            return config
+
+def from_config(correct):
+    print('Which of the following is the element whose ground state electron configuration is ' + configuration(correct) + '?')
+    choices = []
+    choices.append(correct)
+    while (len(choices) < 4):
+        x = random.randint(0, 117)
+        if (not(x in choices)):
+            choices.append(x)
+    choices.sort()
+    for i in range(4):
+        print(let[i] + '. ' + names[choices[i]])
+    ans = False
+    while (not ans):
+        choice = input('Answer: ')
+        if (choice in let):
+            if (choices[let.index(choice) % 4] == correct):
+                ans = True
+                print('Correct! ' + str(names[correct]) + '\'s ground state electron configuration is ' + configuration(correct)  + '!')
+            else:
+                print('I\'m sorry, that was incorrect. Please try again.')
+        else:
+            print('I\'m sorry, I don\'t understand what you mean, please try again.')

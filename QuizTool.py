@@ -98,5 +98,4 @@ def find_config(correct):
             else:
                 print('I\'m sorry, that was incorrect. Please try again.')
         else:
-            print('I\'m sorry, I don\'t understand what you mean, please try again.')    
-    
+            print('I\'m sorry, I don\'t understand what you mean, please try again.')

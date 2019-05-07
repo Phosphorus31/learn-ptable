@@ -92,7 +92,10 @@ def i_shells(a_num, outmost_shell):
                 innershells = innershells + ', and ' + str(e_orbitals[i])
             else:
                 innershells = innershells + ', ' + str(e_orbitals[i])
-        print('It also has full ' + innershells + ' orbitals, filled with electrons.')
+        if (a_num > 4):
+            print('It also has full ' + innershells + ' orbitals, filled with electrons.')
+        else:
+            print('It also has the full ' + innershells + ' orbital, filled with electrons.')
         time.sleep(1)
 
 def print_config(a_num, elec_c):
@@ -120,7 +123,7 @@ def shorthand(atomic_number, electron_configuration):
         elif ('3s' in electron_configuration):
             print('[Ne]' + electron_configuration[9:])
         elif ('2s' in electron_configuration):
-            print('[He]' + electron_configuration[6:])
+            print('[He]' + electron_configuration[3:])
         time.sleep(1)
 
 def ask_cycle():

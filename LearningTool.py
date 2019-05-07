@@ -12,7 +12,7 @@ def run():
 def welcome():
     print('Welcome to the periodic table learning tool!')
     time.sleep(1)
-    print('You can learn about the electron configurations of different neutral elements!')
+    print('You can learn about the ground state electron configurations of different neutral elements!')
     time.sleep(1)
 
 with open('Elements.csv') as csvfile:

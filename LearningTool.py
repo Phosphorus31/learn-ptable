@@ -11,9 +11,9 @@ def run():
 
 def welcome():
     print('Welcome to the periodic table learning tool!')
-    time.sleep(1)
+    time.sleep(1.5)
     print('You can learn about the ground state electron configurations of different elements!')
-    time.sleep(1)
+    time.sleep(1.5)
 
 with open('Elements.csv') as csvfile:
     readCSV = csv.reader(csvfile, delimiter = ',')
@@ -36,7 +36,7 @@ def ask():
 
     while (not(choose in symbols) and not(choose in names) and not(choose in numbers)):
         print('The name or number you entered does not exist in our database; please confirm your spelling and try again.')
-        time.sleep(1)
+        time.sleep(1.5)
         choose = input('If you are trying to enter a chemical symbol or name, please capitalize the first letter and leave the rest un-capitalized: ')
 
     if (choose in symbols):
@@ -53,13 +53,15 @@ def ask():
         o_shell = o_shells[num]
 
     print('You have chosen element ' + str(num) + ': ' + elem)
-    time.sleep(1)
+    time.sleep(1.5)
 
 def o_orbital(a_num, outmost_shell):
     print('The area on which the element falls on the periodic table is dictated by the highest-energy orbital of that element.')
-    time.sleep(1)
+    time.sleep(1.5)
     print(names[a_num] + ' falls in the ' + outmost_shell + ' area, meaning that the highest energy orbital it contains is ' + outmost_shell + '.')
-    time.sleep(1)
+    time.sleep(1.5)
+    print('Notice how the width of that area corresponds to the maximum number of electrons that the ' + outmost_shell + ' orbital can contain, which is ' + str(shell_e[e_orbitals.index(outmost_shell)]) + '.')
+    time.sleep(1.5)
 
 def e_config(a_num):
     electron_num = int(a_num)
@@ -80,7 +82,7 @@ def o_elec(a_num, outer_num, outmost_shell):
         print(names[a_num] + ' has 1 electron in its highest energy ' + outmost_shell + ' orbital.')
     else:
         print(names[a_num] + ' has ' + str(outer_num) + ' electrons in its highest energy ' + outmost_shell + ' orbital.')
-    time.sleep(1)
+    time.sleep(1.5)
 
 def i_shells(a_num, outmost_shell):
     if (a_num > 2):
@@ -96,22 +98,22 @@ def i_shells(a_num, outmost_shell):
             print('It also has full ' + innershells + ' orbitals, filled with electrons.')
         else:
             print('It also has the full ' + innershells + ' orbital, filled with electrons.')
-        time.sleep(1)
+        time.sleep(1.5)
 
 def print_config(a_num, elec_c):
     print('The electron configuration of neutral ' + str(names[a_num]).lower() + ' is:')
-    time.sleep(1)
+    time.sleep(1.5)
     print(elec_c)
-    time.sleep(1)
+    time.sleep(1.5)
     shorthand(a_num, elec_c)
 
 def shorthand(atomic_number, electron_configuration):
     if (atomic_number <= 2):
         print('The electron configuration of ' + str(names[atomic_number]).lower() + ' has no shorthand notation.')
-        time.sleep(1)
+        time.sleep(1.5)
     else:
         print('The shorthand notation for ' + str(names[atomic_number]).lower() + '\'s electron configuration is:')
-        time.sleep(1)
+        time.sleep(1.5)
         if ('7s' in electron_configuration):
             print('[Rn]' + electron_configuration[49:])
         elif ('6s' in electron_configuration):
@@ -124,7 +126,7 @@ def shorthand(atomic_number, electron_configuration):
             print('[Ne]' + electron_configuration[9:])
         elif ('2s' in electron_configuration):
             print('[He]' + electron_configuration[3:])
-        time.sleep(1)
+        time.sleep(1.5)
 
 def ask_cycle():
     ask()
@@ -141,9 +143,9 @@ def ask_again():
         ask_cycle()
     elif ((state == 'No') or (state == 'no')):
         print('Thank you for using the periodic table learning tool!')
-        time.sleep(1)
+        time.sleep(1.5)
         print('We hope to see you again soon :)')
     else:
         print('I\'m not sure I understand what you mean, please enter "yes" or "no"')
-        time.sleep(1)
+        time.sleep(1.5)
         ask_again()

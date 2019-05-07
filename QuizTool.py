@@ -21,6 +21,7 @@ with open('Elements.csv') as csvfile:
 
 def highest_energy_orbital(correct):
     print('What is the highest energy orbital that neutral ' + str(names[correct]).lower() + ' contains?')
+    time.sleep(1)
     choices = []
     choices.append(e_orbitals.index(o_shells[correct]))
     while (len(choices) < 4):
@@ -30,6 +31,7 @@ def highest_energy_orbital(correct):
     choices.sort()
     for i in range(4):
         print(let[i] + '. ' + e_orbitals[choices[i]])
+        time.sleep(1)
     ans = False
     while (not ans):
         choice = input('Answer: ')
@@ -37,10 +39,13 @@ def highest_energy_orbital(correct):
             if (choices[let.index(choice) % 4] == e_orbitals.index(o_shells[correct])):
                 ans = True
                 print('Correct! The highest energy orbital that neutral ' + str(names[correct]).lower() + ' contains is ' + o_shells[correct]  + '!')
+                time.sleep(1)
             else:
                 print('I\'m sorry, that was incorrect. Please try again.')
+                time.sleep(1)
         else:
             print('I\'m sorry, I don\'t understand what you mean, please try again.')
+            time.sleep(1)
 
 def configuration(a_num):
     electron_num = int(a_num)

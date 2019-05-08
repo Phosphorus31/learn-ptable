@@ -116,6 +116,8 @@ def print_config(a_num, elec_c):
     time.sleep(1.5)
     print(elec_c)
     time.sleep(1.5)
+    print('There are many types of elements that violate the Aufbau Principle, with chromium and copper being famous examples. The configuration above is mathematically constructed to follow the Aufbau Principle, but the true electron configuration might differ.')
+    time.sleep(1.5)
     shorthand(a_num, elec_c)
 
 def shorthand(atomic_number, electron_configuration):

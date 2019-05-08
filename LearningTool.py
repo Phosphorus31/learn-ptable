@@ -91,13 +91,24 @@ def i_shells(a_num, outmost_shell):
             if (i == 0):
                 innershells = innershells + str(e_orbitals[i])
             elif (i == e_orbitals.index(o_shell) - 1):
-                innershells = innershells + ', and ' + str(e_orbitals[i])
+                if (i != 1):
+                    innershells = innershells + ', and ' + str(e_orbitals[i])
+                else:
+                    innershells = innershells + ' and ' + str(e_orbitals[i])
             else:
                 innershells = innershells + ', ' + str(e_orbitals[i])
         if (a_num > 4):
             print('It also has full ' + innershells + ' orbitals, filled with electrons.')
         else:
             print('It also has the full ' + innershells + ' orbital, filled with electrons.')
+        time.sleep(1.5)
+        print('As described by the Bohr model, each "orbital" resemble orbits, similar to planetary orbits around a star system.')
+        time.sleep(1.5)
+        print('The "radius" of the orbital represents the energy level of the electrons: the farther away the orbital is from the nucleus, the higher its energy level.')
+        time.sleep(1.5)
+        print('However, according to the quantum model of the atom, the orbitals are really representations of the probability density distribution of the electron\'s location.')
+        time.sleep(1.5)
+        print('Orbitals, such as ' + innershells + ', are actually 3-dimensional and can look very weird due to their nature and the interactions between themselves.')
         time.sleep(1.5)
 
 def print_config(a_num, elec_c):

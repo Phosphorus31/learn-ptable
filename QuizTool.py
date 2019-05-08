@@ -21,7 +21,6 @@ with open('Elements.csv') as csvfile:
 
 def highest_energy_orbital(correct):
     print('What is the highest energy orbital that neutral ' + str(names[correct]).lower() + ' contains?')
-    time.sleep(1)
     choices = []
     choices.append(e_orbitals.index(o_shells[correct]))
     while (len(choices) < 4):
@@ -31,7 +30,6 @@ def highest_energy_orbital(correct):
     choices.sort()
     for i in range(4):
         print(let[i] + '. ' + e_orbitals[choices[i]])
-        time.sleep(1)
     ans = False
     while (not ans):
         choice = input('Answer: ')
@@ -39,13 +37,10 @@ def highest_energy_orbital(correct):
             if (choices[let.index(choice) % 4] == e_orbitals.index(o_shells[correct])):
                 ans = True
                 print('Correct! The highest energy orbital that neutral ' + str(names[correct]).lower() + ' contains is ' + o_shells[correct]  + '!')
-                time.sleep(1)
             else:
                 print('I\'m sorry, that was incorrect. Please try again.')
-                time.sleep(1)
         else:
             print('I\'m sorry, I don\'t understand what you mean, please try again.')
-            time.sleep(1)
 
 def configuration(a_num):
     electron_num = int(a_num)
@@ -63,7 +58,7 @@ def from_config(correct):
     choices = []
     choices.append(correct)
     while (len(choices) < 4):
-        x = random.randint(0, 117)
+        x = random.randint(1, 118)
         if (not(x in choices)):
             choices.append(x)
     choices.sort()
@@ -86,11 +81,10 @@ def find_config(correct):
     choices = []
     choices.append(correct)
     while (len(choices) < 4):
-        x = random.randint(0, 117)
+        x = random.randint(1, 118)
         if (not(x in choices)):
             choices.append(x)
     choices.sort()
-    print(choices)
     for i in range(4):
         print(let[i] + '. ' + configuration(choices[i]))
     ans = False
@@ -104,3 +98,44 @@ def find_config(correct):
                 print('I\'m sorry, that was incorrect. Please try again.')
         else:
             print('I\'m sorry, I don\'t understand what you mean, please try again.')
+
+def ask_question():
+    x = random.randint(1, 3)
+    atomic_num = random.randint(1, 118)
+    if (x == 1):
+        highest_energy_orbital(atomic_num)
+    elif (x == 2):
+        from_config(atomic_num)
+    elif (x == 3):
+        find_config(atomic_num)
+
+def question_cycle():
+    ask_question()
+    ask_again()
+
+def ask_again():
+    repeat = input('Would you like another question? (Yes/No): ')
+    if ((repeat == 'Yes') or (repeat == 'yes')):
+        question_cycle()
+    elif ((repeat == 'No') or (repeat == 'no')):
+        print('Thank you for using the periodic table quiz tool!')
+        time.sleep(1)
+        print('We hope to see you again soon :)')
+    else:
+        print('I\'m not sure I understand what you mean, please enter "yes" or "no"')
+        time.sleep(0.5)
+        ask_again()
+
+def welcome():
+    print('Welcome to the periodic table quiz tool!')
+    time.sleep(1.5)
+    print('You can be quizzed about the ground state electron configurations of different elements!')
+    time.sleep(1.5)
+    print('Here we go!')
+    time.sleep(1.5)
+
+def run():
+    welcome()
+    question_cycle()
+
+run()

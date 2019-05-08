@@ -112,7 +112,7 @@ def i_shells(a_num, outmost_shell):
         time.sleep(1.5)
 
 def print_config(a_num, elec_c):
-    print('The electron configuration of neutral ' + str(names[a_num]).lower() + ' is:')
+    print('The electron configuration of neutral ' + str(names[a_num]).lower() + ', assuming that it follows the Aufbau Principle, is:')
     time.sleep(1.5)
     print(elec_c)
     time.sleep(1.5)

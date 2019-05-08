@@ -149,3 +149,5 @@ def ask_again():
         print('I\'m not sure I understand what you mean, please enter "yes" or "no"')
         time.sleep(1.5)
         ask_again()
+
+run()

@@ -20,6 +20,10 @@ python3 -i LearningTool.py
 
 `QuizTool.py` is a file that, when run, allows the user to be tested on various types of questions regarding an element's ground state electron configuration or the highest energy level orbital the element contains. The code is run in a similar fashion as above
 
+```
+python3 -i QuizTool.py
+```
+
 The files *need* to be run in the terminal in order for the user to enjoy the beauty of the construction of the periodic table.
 
 Prior to running them, make sure that you are in the correct folder by doing:
